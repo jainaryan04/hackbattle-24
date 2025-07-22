@@ -10,7 +10,7 @@ export default function GoogleModal({ visible, onClose, onLoginSuccess }) {
   const [loading, setLoading] = useState(false);
   if (!visible) return null;
   const firebaseConfig = {
-    apiKey: process.env.NEXT_FIREBASE_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: "internal-hack-11122.firebaseapp.com",
     projectId: "internal-hack-11122",
     storageBucket: "internal-hack-11122.firebasestorage.app",
