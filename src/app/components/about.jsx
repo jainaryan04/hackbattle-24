@@ -91,7 +91,13 @@ export default function About() {
     "innovation.",
   ];
 
-  const blueWords = ["36-hour", "IEEECS-VIT,","challenges", "sessions", "activities"];
+  const blueWords = [
+    "36-hour",
+    "IEEECS-VIT,",
+    "challenges",
+    "sessions",
+    "activities",
+  ];
 
   const fillColor = "#FFA33C";
   const blueColor = "#15F5BA"; // Color to fill certain words with

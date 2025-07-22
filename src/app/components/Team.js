@@ -111,16 +111,37 @@ function Team() {
   //     });
   // };
 
+  /**
+   * Formats an email string like 'first.last2023@vitstudent.ac.in'
+   * into a proper name 'First Last'.
+   * @param {string} email - The input email address.
+   * @returns {string} The formatted name.
+   */
+  const formatEmailToName = (email) => {
+    if (!email || !email.includes("@")) {
+      return "Invalid Member";
+    }
+    // Get the part before the @ symbol
+    let namePart = email.split("@")[0];
+    // Remove numbers and all characters after them
+    namePart = namePart.replace(/\d.*$/, "");
+    // Split by '.', capitalize each word, and join with a space
+    return namePart
+      .split(".")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
   const renderTeamMembers = () => {
     const teamMembers = teamData.teamMembers
       .map((member) => ({
-        name: member.email,
+        name: formatEmailToName(member.email), // Use the formatting function here
         position: member.isLeader ? "Team Leader" : "Team Member",
         logo: member.isLeader ? "/pacmanteam.svg" : "/pacmanmember.svg",
       }))
       .sort((a) => (a.position === "Team Leader" ? -1 : 1));
 
-    const totalSlots = 6;
+    const totalSlots = 5; // UPDATED: Changed from 6 to 5
     const emptySlots = totalSlots - teamMembers.length;
     const allSlots = [
       ...teamMembers,
@@ -155,7 +176,7 @@ function Team() {
         <p className="font-pixeboy md:text-5xl text-3xl glow-text text-white p-2">
           HACKBATTLE 2024
         </p>
-        <p className="font-pixeboy md:text-5xl text-3xl  mt-8">
+        <p className="font-pixeboy md:text-5xl text-3xl mt-4">
           {"Your team : "}
           {teamData ? teamData.teamName : "Loading..."}
         </p>
@@ -164,13 +185,13 @@ function Team() {
             *Teams should have at least 3 members to participate
           </p>
         )}
-        <div className="md:absolute md:right-[3vw] md:top-[3vh] mt-[2vw] md:mt-0 space-x-4">
+        <div className="md:absolute md:right-[3vw] md:top-[2vh] mt-[2vw] md:mt-0 space-x-4">
           {/* <button
-            className="bg-[#F5ED02] border-2 border-black p-3 text-3xl font-pixeboy"
-            onClick={() => setLeavePopup(true)}
-          >
-            Leave Team
-          </button> */}
+             className="bg-[#F5ED02] border-2 border-black p-3 text-3xl font-pixeboy"
+             onClick={() => setLeavePopup(true)}
+           >
+             Leave Team
+           </button> */}
           <button
             className="bg-[#F5ED02] border-2 border-black p-3 text-3xl font-pixeboy"
             onClick={() => setSubmissionPopup(true)} // Button to trigger SubmissionsPopup
@@ -181,7 +202,7 @@ function Team() {
       </div>
 
       <div
-        className={`flex justify-around items-center flex-wrap lg:flex-row flex-col lg:gap-y-16 gap-y-8 mt-12 md:mb-0 pb-8 ${
+        className={`flex justify-center gap-x-8 items-center flex-wrap lg:flex-row flex-col lg:gap-y-12 gap-y-8 mt-8 md:mb-0 pb-8 ${
           !teamData ? "opacity-30" : ""
         }`}
       >
@@ -195,10 +216,10 @@ function Team() {
         />
       )}
       {/* <LeaveTeamPopup
-        visible={leavePopup}
-        onConfirm={handleLeaveTeam}
-        onCancel={() => setLeavePopup(false)}
-      /> */}
+         visible={leavePopup}
+         onConfirm={handleLeaveTeam}
+         onCancel={() => setLeavePopup(false)}
+       /> */}
       <SubmissionPopup
         visible={submissionPopup}
         onConfirm={() => setSubmissionPopup(false)} // Close popup after submission
