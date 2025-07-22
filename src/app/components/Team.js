@@ -114,7 +114,7 @@ function Team() {
   const renderTeamMembers = () => {
     const teamMembers = teamData.teamMembers
       .map((member) => ({
-        name: member.name,
+        name: member.email,
         position: member.isLeader ? "Team Leader" : "Team Member",
         logo: member.isLeader ? "/pacmanteam.svg" : "/pacmanmember.svg",
       }))

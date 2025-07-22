@@ -10,12 +10,13 @@ export default function GoogleModal({ visible, onClose, onLoginSuccess }) {
   const [loading, setLoading] = useState(false);
   if (!visible) return null;
   const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: "hackathon-2024-1d92e.firebaseapp.com",
-    projectId: "hackathon-2024-1d92e",
-    storageBucket: "hackathon-2024-1d92e.appspot.com",
-    messagingSenderId: "211234002600",
-    appId: "1:211234002600:web:d4a73bf2fffae1918a549d",
+    apiKey: process.env.NEXT_FIREBASE_API_KEY,
+    authDomain: "internal-hack-11122.firebaseapp.com",
+    projectId: "internal-hack-11122",
+    storageBucket: "internal-hack-11122.firebasestorage.app",
+    messagingSenderId: "965876380830",
+    appId: "1:965876380830:web:a3e97c40647f5a0be5378f",
+    measurementId: "G-TE9GX1M58W"
   };
 
   const app = initializeApp(firebaseConfig);
