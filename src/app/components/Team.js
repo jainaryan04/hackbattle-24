@@ -174,7 +174,7 @@ function Team() {
 
       <div className="text-center">
         <p className="font-pixeboy md:text-5xl text-3xl glow-text text-white p-2">
-          HACKBATTLE 2024
+         IEEE-CS INTERNAL HACK 2025
         </p>
         <p className="font-pixeboy md:text-5xl text-3xl mt-4">
           {"Your team : "}
