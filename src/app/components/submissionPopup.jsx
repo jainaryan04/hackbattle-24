@@ -165,7 +165,7 @@ const SubmissionPopup = ({ visible, onCancel }) => {
                     className="font-pixeboy text-[2.2vh] p-2 h-[100px] w-full text-black rounded-lg border-2 border-pink-300 resize-none disabled:bg-gray-300 disabled:cursor-not-allowed"
                     disabled={isSubmittingIdea}
                   />
-                  <button
+{/*                   <button
                     onClick={handleIdeaSubmit}
                     className="mt-2 w-full rounded-lg sm:text-[3vh] text-[2vh] px-8 py-2 text-black border-black border-2 bg-yellow-300 transition-colors duration-200 hover:opacity-90 font-pixeboy disabled:bg-gray-400 disabled:cursor-not-allowed"
                     disabled={isSubmittingIdea}
@@ -175,7 +175,7 @@ const SubmissionPopup = ({ visible, onCancel }) => {
                       : isIdeaPresent
                       ? "Update Idea"
                       : "Submit Idea"}
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* --- Links Section --- */}
